@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% block title %}Welcome | {% endblock %}
+
+{% block content %}
+<div style="height: 40vh;" class="d-flex align-items-end justify-content-center">
+    <div class="align-items-center justify-content-center d-flex" style="width: 1050px;">
+        <div class="text-center justify-content-center d-flex flex-column align-items-center">
+            <h1 class="fw-bolder display-4 lh-1">Indulge the joy of learning ECE with our interactive and fun-filled resources.</h1>
+            <p class="fs-5 opacity-75 mt-3 mb-5" style="width: 850px;">We are thrilled to have you join our vibrant community of learners, where curiosity reigns supreme and knowledge is the cornerstone of success.</p>
+            <div>
+                <button type="submit" class="btn btn-info" style="border-radius: 10px; height: 51px; width: 140px;"><a href="/signup/" class="text-white text-decoration-none fw-semibold fs-7 opacity-75">Get started</a></button>
+                <button type="submit" class="btn btn-outline-info" style="border-radius: 10px; height: 51px; width: 140px;"><a href="/contacts" class="text-white text-decoration-none fw-semibold fs-7 opacity-75">Contact us</a></button>
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="mt-5 border-top border-dark">
+    <div class="d-flex justify-content-between text-white" style="margin: 0 350px 0 350px;">
+        <div class="d-flex flex-column p-3" style="margin-top: 110px; width: 350px;  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border:1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);"><h3 class="mb-4 fw-semibold">Get to know ECE</h3><p class="fs-5 opacity-75">Get to know about Electronics Engineering such as its description, definition, various fields, job careers, and many more.</p></div>
+        <div class="d-flex flex-column p-3" style="margin-top: 110px; width: 350px;  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border:1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);"><h3 class="mb-4 fw-semibold">Connect with People</h3><p class="fs-5 opacity-75">Contribute educational content publicly such as documents, video turtorials, photos and others.</p></div>
+        <div class="d-flex flex-column p-3" style="margin-top: 110px; width: 350px; z-index: 2;  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border:1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);"><h3 class="mb-4 fw-semibold">Helpful Tools</h3><p class="fs-5 opacity-75">Tools that allow Electronics Engineering students solve complicated problems quickly and in an efficient manner</p></div>
+    </div>
+</div>
+<div style="position: absolute; z-index: -2; top: 10px; left: 130px;"> <img src="static/images/air.png" class="opacity-50" style="width: 1650px;" alt=""> </div>
+<div style="position: absolute; z-index: -2; bottom: 0px; left: 0px;"> <img src="static/images/tech.png" class="opacity-50" style="width: 450px;" alt=""> </div>
+<div style="position: absolute; z-index: -2; top: 10px; right: 0px;"> <img src="static/images/3.png" class="opacity-50" style="width: 450px;" alt=""> </div>
+<div style="position: absolute; z-index: -2; bottom: 100px; right: 150px;"> <img src="static/images/4.png" class="opacity-50" style="width: 450px;" alt=""> </div>
+
+{% endblock %}

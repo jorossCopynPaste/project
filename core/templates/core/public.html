@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Public | {% endblock %}
+
+{% block content %}
+
+<div class="container text-center">
+    <h1 class="my-5 fw-bolder">Public Inventory</h1>
+</div>
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-3" style="width: 327px;">
+            <div class="card text-white" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+                <h4 class="fw-semibold card-header">Files</h4>
+                <div class="card-header ms-2">
+                    Categories
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item ms-4 bg-transparent border-bottom border-dark" >
+                        <a href="{% url 'public' %}" class="text-decoration-none text-white opacity-75">All</a>
+                    </li>
+                    {% for publiccategory in publiccategories %}
+                    <li class=" list-group-item ms-4 bg-transparent border-bottom border-dark">
+                        <a href="{% url 'gallery' %}?category={{category.name}}" class="text-decoration-none text-white opacity-75">
+                            {{publiccategory.name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                    <a href="{% url 'publicadd' %}" class="btn btn-info btn-block btn-sm m-2 fw-semibold text-dark-emphasis" style="border-radius: 4px 4px 12px 12px;">Add File <i class="fa-solid fa-plus"></i></a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="padding: 13px; margin-top: 20px; width: 305px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+        <h5>Note:</h5>
+        <p class="opacity-50">This website allows users to upload files, but please be aware that all uploads are subject to moderation before being published. This means that I, the website owner, have the final say on whether or not your uploaded file will be visible to other users.</p>
+    </div>
+</div>
+{% endblock %}

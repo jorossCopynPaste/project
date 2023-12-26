@@ -1,0 +1,73 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inventory | {% endblock %}
+
+{% block content %}
+
+<div class="container text-center">
+    {% if request.user.is_authenticated %}
+        <h1 class="my-5 fw-bolder">{{request.user}}'s Private Space</h1>
+    {% endif %}
+</div>
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-3" style="width: 327px;">
+            <div class="card text-white" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+                <h4 class="fw-semibold card-header">Files</h4>
+                <div class="card-header ms-2">
+                    Categories
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item ms-4 bg-transparent border-bottom border-dark" >
+                        <a href="{% url 'gallery' %}" class="text-decoration-none text-white opacity-75">All</a>
+                    </li>
+                    {% for category in categories %}
+                    <li class=" list-group-item ms-4 bg-transparent border-bottom border-dark">
+                        <a href="{% url 'gallery' %}?category={{category.name}}" class="text-decoration-none text-white opacity-75">
+                            {{category.name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                    <a href="{% url 'add' %}" class="btn btn-info btn-block btn-sm m-2 fw-semibold text-dark-emphasis" style="border-radius: 4px 4px 12px 12px;">Add File<i class="fa-solid fa-plus"></i></a>
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                {% for photo in photos %}
+                <div class="col-md-4">
+                    <div class="card mb-4 text-white" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+                    backdrop-filter: blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    border-radius: 20px 5px 20px 20px;
+                    border:1px solid rgba(255, 255, 255, 0.18);
+                    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
+                        <div class="mx-1 d-flex">
+                            <p class="opacity-75">Category:</p>
+                            <p class="fw-bold ms-1"> {{photo.category.name}}</p>
+                        </div>
+                        <div class="mx-1 d-flex">
+                            <p class="opacity-75">File type & Description:</p>
+                            <p class="ms-1 fw-bold">{{photo.description}}</p>
+                        </div>
+                        <a href="{% url 'photo' photo.id %}" class="btn btn-info btn-sm mx-2 mb-2 text-dark-emphasis fw-semibold" style="border-radius: 4px 4px 12px 12px;">View <i class="fa-solid fa-eye"></i></a>
+                    </div>
+                    <a href="{% url 'deleteImage' photo.id %}" style="position: relative; left: 285px; top: -140px; color: red;"><i class="fa-solid fa-trash"></i></a>
+
+                </div>
+                {% empty %}
+                <div class="position-relative my-4">
+                    <h5 class="position-absolute top-50 start-50 translate-middle opacity-50">No files yet...</h5>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
